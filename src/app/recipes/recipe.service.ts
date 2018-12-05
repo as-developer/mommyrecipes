@@ -5,9 +5,8 @@ import { ShoppingListService } from "../shopping-list/shopping-list.service";
 import { Subject } from "rxjs";
 
 @Injectable()
-export class RecipeService { 
+export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
-
 
   private recipes: Recipe[] = [
     new Recipe(
@@ -38,13 +37,18 @@ export class RecipeService {
     this.slService.addIngredients(ingredients);
   }
 
-  addRecipe(recipe: Recipe){
+  addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
     this.recipesChanged.next(this.recipes.slice());
   }
 
-  updateRecipe(index: number, newRecipe: Recipe){
+  updateRecipe(index: number, newRecipe: Recipe) {
     this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  deleteRecipe(index: number) {
+    return this.recipes.slice(index, 1);
     this.recipesChanged.next(this.recipes.slice());
   }
 }
