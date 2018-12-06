@@ -1,0 +1,25 @@
+<form (ngSubmit)="onSignup(f)" #f="ngForm">
+  <div class="form-group">
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user text-success"></i></span>
+            <input type="email" id="email" name="email" ngModel placeholder="Email" class="form-control">
+          </div>
+    </div>
+  </div>
+  <div class="form-group">
+     <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock text-danger"></i></span>
+            <input type="password" id="password" name="password" ngModel placeholder="Password" class="form-control">
+          </div>
+        </div>
+     </div>
+  <div class="form-group">
+    <div class="col-xs-2 col-xs-offset-2">
+        <button class="btn btn-primary" type="submit">
+            <i class="glyphicon glyphicon-registration-mark"></i>&nbsp;Sign Up
+          </button>
+    </div>
+  </div>
+</form>
